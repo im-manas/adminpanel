@@ -1,0 +1,57 @@
+<%-include('../Includes/header.ejs')%>
+</head>
+<%-include('../Includes/sidebar.ejs')%>
+  <%-include('../Includes/navigation.ejs',{isLoggedIn : isLoggedIn})%>
+  <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Admin Tables</h1>
+    <a href="/addAdmin" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Add new</a>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <%if(data.length>0){%>
+                        <%for(let x of data){%>
+                        <tr>
+                            <td><%=x.f_name%></td>
+                            <td><%=x.l_name%></td>
+                            
+                            <td><%=x.email%></td>
+                            <td>
+                                <%=x.status%>
+                            </td>
+                            <td>
+                              
+                              <a class="btn btn-primary" href="/edit/<%=x._id%>">Edit</a>
+                              <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Admin?');" href="/delete/<%=x._id%>">delete</a>
+                             
+                              
+                            
+                              </td>
+                           
+                        </tr> 
+                        <%}%>                      
+                    </tbody>
+                </table>
+                <%}else{%>
+                  <h1>Data Not Found.</h1>
+              <%}%>
+            </div>
+        </div>
+    </div>
+
+</div>
+<%-include('../Includes/footer.ejs')%>

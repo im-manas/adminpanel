@@ -55,5 +55,5 @@ mongoose.connect(dbDriver,{useNewUrlParser:true,useUnifiedTopology:true})
     })
 })
 .catch(err=>{
-    console.dir(" database not connected",err);
+    console.error("db not connected",err);
 })

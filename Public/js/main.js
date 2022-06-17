@@ -67,11 +67,30 @@ $("#subbtn").on("click",function(e){
         $("#file_err").text("")
     }
 
-    
+
 
     if(err == 0){
         $("#addForm").submit()
     }
 
 })
+
+
+// $("#subbtn").on("click",function(e){
+//     e.preventDefault();
+
+//     var err =0
+
+//     if($("#password").val() == ""){
+//         err++
+//         $("#msg_password").text("Enter valid password")
+//     }else{
+//         $("#msg_password").text("")
+//     }
+
+//     if(err == 0){
+//         $("#loginForm").submit()
+//     }
+
+// })
 

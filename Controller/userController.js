@@ -62,8 +62,17 @@ exports.getUserDetails= async (req,res)=>{
             })
     }
 
-    exports.postEditUser=async (req,res)=>{
-        const {name, email, confpassword, phone, address, status, id}=req.body
+        exports.postEditUser=async (req,res)=>{
+        const {name, email, confpassword, phone, address, status, id, image}=req.body
+        let p_image=req.file;
+        let image_url;
+        if(p_image===undefined)
+        {
+            image_url=image
+        }else{
+            image_url=p_image.path
+        }
+        console.log("image",p_image);
         const updatedData = await userModel.findById(id)
            updatedData.name=name
            updatedData.email=email
@@ -71,6 +80,7 @@ exports.getUserDetails= async (req,res)=>{
            updatedData.phone=phone
            updatedData.address=address
            updatedData.status=status
+           updatedData.p_image=image_url;
         let results =  updatedData.save()
                 return res.redirect('/view-user')
             }

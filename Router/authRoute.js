@@ -9,4 +9,5 @@ auth_route.post('/addAdmin',auth_controller.postReg)
 auth_route.post('/login',auth_controller.postLogin)
 auth_route.get('/logout',auth_controller.getLogout)
 
+
 module.exports=auth_route;

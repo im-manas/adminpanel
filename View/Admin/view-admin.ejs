@@ -1,6 +1,7 @@
 <%-include('../Includes/header.ejs')%>
 </head>
 <%-include('../Includes/sidebar.ejs')%>
+
   <%-include('../Includes/navigation.ejs',{isLoggedIn : isLoggedIn})%>
   <div class="container-fluid">
 
@@ -19,12 +20,13 @@
                             <th>Last Name</th>
                             <th>Email</th>
                             <th>Status</th>
+                            <th>Profile mage</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                      <%if(data.length>0){%>
-                        <%for(let x of data){%>
+                        <%if(data.length>0){%>
+                            <%for(let x of data){%>
                         <tr>
                             <td><%=x.f_name%></td>
                             <td><%=x.l_name%></td>
@@ -33,6 +35,12 @@
                             <td>
                                 <%=x.status%>
                             </td>
+                            <td>
+                            <% if(x.p_image){ %>
+                                <img src="<%=x.p_image%>" style="width: 50px" alt="image" />
+                                <% } %>
+                            </td>
+                            
                             <td>
                               
                               <a class="btn btn-primary" href="/edit/<%=x._id%>">Edit</a>

@@ -106,3 +106,9 @@ exports.getLogout = (req, res) => {
   console.log("logout", req.session);
   res.redirect("/login");
 };
+
+exports.viewProfile=(req,res)=>{
+  res.render('Auth/profile',{
+    title:"Profile"
+  })
+}

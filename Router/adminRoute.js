@@ -10,4 +10,6 @@ admin_route.get('/edit/:admin_id',admin_controller.getEdit)
 admin_route.post('/edit',admin_controller.postEditData)
 
 
+
+
 module.exports=admin_route;

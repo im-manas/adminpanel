@@ -15,7 +15,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 pt-3 ">Add user!</h1>
                             </div>
-                            <form class="user"  method="POST" action="/edit-user" id="addForm">
+                            <form class="user"  method="POST" action="/edit-user" id="addForm" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label class="form-label">Name</label>
                                         <input type="text" class="form-control" name="name" id="Name"
@@ -69,6 +69,14 @@
                                         <option value="inactive">Inactive</option>
                                       </select>
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">image</label>
+                                        <input type="file" class="form-control" name="p_image" id="p_image">
+                                        <input type="hidden" name="image" value="<%=data.p_image%>">
+                                        <img src="../../<%=data.p_image%>" style="width: 200px;">
+                                       </div>
+
                                    <input type="hidden" name="id" value="<%=data._id%>">
                                 <input type="submit" class="btn btn-primary btn-user btn-block" id="subbtn" value="Edit">
                                 <hr>

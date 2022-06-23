@@ -19,7 +19,8 @@ const authSchema=new SchemaVariable({
         type:String,
         required:true
     },
-    status:{type:String}
+    status:{type:String},
+    p_image:{type:String}
 })
 
 module.exports=mongoose.model('auth_data',authSchema)

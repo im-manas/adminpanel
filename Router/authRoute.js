@@ -8,5 +8,7 @@ auth_route.get('/addAdmin',CheckLogged,auth_controller.getaddAdmin)
 auth_route.post('/addAdmin',auth_controller.postReg)
 auth_route.post('/login',auth_controller.postLogin)
 auth_route.get('/logout',auth_controller.getLogout)
+auth_route.get('/profile',CheckLogged,auth_controller.viewProfile)
+
 
 module.exports=auth_route;

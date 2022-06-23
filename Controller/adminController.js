@@ -2,8 +2,8 @@ const authModel=require('../Model/auth')
 const userModel=require('../Model/user')
 
 exports.getIndex= async (req,res)=>{
-   const adminCount =await authModel.find().count()
-   const userCount= await userModel.find().count()
+   const adminCount = await authModel.find().count()
+   const userCount = await userModel.find().count()
     res.render('Admin/index',{
         title:"home",
         userCount : userCount,
@@ -22,24 +22,7 @@ exports.getViewAdmin= async (req,res)=>{
    
 }
 
-// exports.getaddAdmin=(req,res)=>{
-//     let {isLoggedIn}=req.session
-//     let messege=req.flash('error')
-//     console.log(messege);
-//     if(messege.length>0)
-//     {
-//         messege=messege[0]
-//     }
-//     else
-//     {
-//         messege=null
-//     }
-//     res.render('Admin/add-admin',{
-//         title:"Add-Admin",
-//         errorMsg:messege,
-//         isLoggedIn:isLoggedIn
-//     })
-// }
+
 
 exports.getDeleteAdmin=async (req,res)=>{
     let admin_id=req.params.admin_id
@@ -62,11 +45,21 @@ exports.getEdit=async (req,res)=>{
 
 exports.postEditData=async (req,res)=>{
     const {f_name, l_name, email, status,id}=req.body
+    let p_image=req.file;
+    let image=req.body.image;
+    let image_url;
+    if(p_image===undefined)
+    {
+        image_url=image
+    }else{
+        image_url=p_image.path
+    }
     const updatedData = await authModel.findById(id)
        updatedData.f_name=f_name
        updatedData.l_name=l_name
        updatedData.email=email
        updatedData.status=status
+       updatedData.p_image=image_url;
     let results =  updatedData.save()
             return res.redirect('/view-admin')
         }

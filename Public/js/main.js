@@ -12,7 +12,7 @@ function check(elem){
             flag = 1;
         }
     }else{
-        document.getElementById('alert').innerText = "Please enter confiirm password";
+        document.getElementById('alert').innerText = "Please enter confirm password";
         flag = 0;
     }
 }
@@ -76,21 +76,29 @@ $("#subbtn").on("click",function(e){
 })
 
 
-// $("#subbtn").on("click",function(e){
-//     e.preventDefault();
+$("#LoginBtn").on("click",function(e){
+    e.preventDefault();
 
-//     var err =0
+    var err =0
 
-//     if($("#password").val() == ""){
-//         err++
-//         $("#msg_password").text("Enter valid password")
-//     }else{
-//         $("#msg_password").text("")
-//     }
+    if($("#AuthEmail").val() == ""){
+        err++
+        $("#msg_AuthEmail").text("Enter email")
+    }else{
+        $("#msg_AuthEmail").text("")
+    }
 
-//     if(err == 0){
-//         $("#loginForm").submit()
-//     }
+    if($("#AuthPassword").val() == ""){
+        err++
+        $("#msg_AuthPassword").text("Enter Password")
+    }else{
+        $("#msg_AuthPassword").text("")
+    }
 
-// })
+
+    if(err == 0){
+        $("#LogForm").submit()
+    }
+
+})
 

@@ -19,16 +19,18 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
-                                <form class="user" action="/login" method="POST">
+                                <form class="user" action="/login" method="POST" id="LogForm">
                                     <div class="form-group">
                                         <input type="email" class="form-control" name="email"
-                                            aria-describedby="emailHelp"
+                                            aria-describedby="emailHelp" id="AuthEmail"
                                              placeholder="Enter Email Address...">
+                                             <span style="color: red;" id="msg_AuthEmail"></span>
                                             
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" name="password"
+                                        <input type="password" class="form-control" name="password" id="AuthPassword"
                                              placeholder="Password">
+                                             <span style="color: red;" id="msg_AuthPassword"></span>
                                             
                                     </div>
                                     <div class="form-group">
@@ -42,7 +44,7 @@
                                           <%}%>
                                           
                                     </div>
-                                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Signin">
+                                    <input type="submit" class="btn btn-primary btn-user btn-block" id="LoginBtn" value="Signin">
                                     <hr>
                                 </form>
                             </div>

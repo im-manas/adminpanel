@@ -1,6 +1,5 @@
 const mongoose=require('mongoose')
 const SchemaVariable=mongoose.Schema;
-
 const authSchema=new SchemaVariable({
     f_name:{
         type:String,
@@ -13,7 +12,6 @@ const authSchema=new SchemaVariable({
     email:{
         type:String,
         required : true
- 
     },
     password:{
         type:String,

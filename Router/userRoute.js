@@ -29,8 +29,7 @@ const fileFilter=(req,file,callback)=>{
 
 user_route.get('/view-user',CheckLogged,user_controller.getUserDetails)
 user_route.get('/add-user',CheckLogged,user_controller.getAddUser)
-user_route.post('/add-user',[multer({storage:fileStorage,
-    fileFilter:fileFilter, limits:{fieldSize:1024*1024*5}}).single('p_image')],user_controller.postUserData)
+user_route.post('/add-user',[multer({storage:fileStorage, fileFilter:fileFilter, limits:{fieldSize:1024*1024*5}}).single('p_image')],user_controller.postUserData)
 user_route.get('/delete-user/:user_id',user_controller.getDeleteUser)
 user_route.get('/edit-user/:user_id',user_controller.getEditUser)
 user_route.post('/edit-user',user_controller.postEditUser)

@@ -23,7 +23,6 @@ exports.getViewAdmin= async (req,res)=>{
 }
 
 
-
 exports.getDeleteAdmin=async (req,res)=>{
     let admin_id=req.params.admin_id
     console.log("admin id:",admin_id);
@@ -47,6 +46,7 @@ exports.postEditData=async (req,res)=>{
     const {f_name, l_name, email, status,id}=req.body
     let p_image=req.file;
     let image=req.body.image;
+    console.log(image);
     let image_url;
     if(p_image===undefined)
     {

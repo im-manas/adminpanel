@@ -23,7 +23,7 @@ const storeValue=new mongodb_session({
 
 appServer.use(session({secret:'manas',resave:false,saveUninitialized:false,store:storeValue}))
 appServer.use(flash())
-appServer.use(express.urlencoded());
+appServer.use(express.urlencoded({extended: true}));
 appServer.use(express.static(path.join(__dirname,'Public')))
 appServer.use('/image',express.static(path.join(__dirname,'/image')))
 const fileStorage=multer.diskStorage({

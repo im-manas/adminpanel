@@ -81,6 +81,6 @@ exports.getUserDetails= async (req,res)=>{
            updatedData.address=address
            updatedData.status=status
            updatedData.p_image=image_url;
-        let results =  updatedData.save()
+        let results = await updatedData.save()
                 return res.redirect('/view-user')
             }

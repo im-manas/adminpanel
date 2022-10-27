@@ -12,12 +12,13 @@ const adminRouting=require('./Router/adminRoute')
 const authRouting=require('./Router/authRoute')
 const userRouting=require('./Router/userRoute')
 const dbDriver='mongodb+srv://manaspramanik:Manas_1999@cluster0.vpytl.mongodb.net/adminpanel?retryWrites=true&w=majority'
-
+// const dbDriver = 'mongodb://localhost:27017/adminpanel'
 appServer.set('view engine','ejs')
 appServer.set('views','View')
 
 const storeValue=new mongodb_session({
     uri:'mongodb+srv://manaspramanik:Manas_1999@cluster0.vpytl.mongodb.net/adminpanel',
+    // uri:'mongodb://localhost:27017/adminpanel',
     collection:'my-session'
 })
 
